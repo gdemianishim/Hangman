@@ -30,7 +30,7 @@ function guessLetter() {
     upadtePage();
 
 
-
+//test
 }
 function upadtePage() {
     var clueString = "";
@@ -42,7 +42,28 @@ function upadtePage() {
         else{
             clueString+="_ ";
         }
+       
     }
+    var clue = document.getElementById("clue");
+    clue.innerHTML = clueString;
+    var guessArea = document.getElementById("guesses");
+    if(clueString.IndexOf("_")<0)
+    {
+        guessArea.innerHTML = "you Won!";
+        gameOver = true
+    } 
+    else if (guess_count<= 0)
+    {
+        guessArea.innerHTML = "You Lost";
+        gameOver = true;
+    }
+    else{
+        guessArea.innerHTML = "Guessed Letters: " + guesses; 
+    }
+    
+    var image = document.getElementById("hangmanImage");
+    image.src = "images/hangman" + guess_count + ".gif";
+
 }
 
 
