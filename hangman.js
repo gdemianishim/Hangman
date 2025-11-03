@@ -11,19 +11,24 @@ function newGame() {
     word = POSSIBLE_WORDS[randomIndex];
     guesses = "";
     guess_count = MAX_GUESSES;
-    gameOver = false
-    
+    gameOver = false;
     updatePage();
 }
 
 function guessLetter() {
     var input = document.getElementById("guess");
-    var letter = input.value; 
+    var letter = input.value;
+    input.value = "";
+    if (word==""|| guesses.indexOf(letter)>=0 || gameOver === true) 
     guesses += letter; 
     upadtePage();
+    
+       return;
 
 }
+if (word.indexOf(letter) < 0){
 
+}
 function upadtePage(){
     var clueString = "";
     for (var i = 0; i < word.length; i++);
