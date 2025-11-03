@@ -7,7 +7,7 @@ var gameOver = false;
 
 
 function newGame() {
-    var randomIndex = parseInt(Math.random() * POSSIBLE_WORD.length);
+    var randomIndex = parseInt(Math.random() * POSSIBLE_WORDS.length);
     word = POSSIBLE_WORDS[randomIndex];
     guesses = "";
     guess_count = MAX_GUESSES;
@@ -27,12 +27,12 @@ function guessLetter() {
         guess_count--;
     }
     guesses += letter;
-    upadtePage();
+    updatePage();
 
 
 //test
 }
-function upadtePage() {
+function updatePage() {
     var clueString = "";
     for (var i = 0; i < word.length; i++) {
         var currentLetter = word.charAt(i);
@@ -47,7 +47,7 @@ function upadtePage() {
     var clue = document.getElementById("clue");
     clue.innerHTML = clueString;
     var guessArea = document.getElementById("guesses");
-    if(clueString.IndexOf("_")<0)
+    if(clueString.indexOf("_")<0)
     {
         guessArea.innerHTML = "you Won!";
         gameOver = true
